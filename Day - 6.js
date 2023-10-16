@@ -138,21 +138,30 @@ class Circle {
 
 // 3. Write a “person” class to hold all the details.
 
-class person {
-    constructor(name,age,department,mobile,city){
-        this.name = name
-        this.age = age
-        this.department = department
-        this.mobile = mobile
-        this.city = city
-}
-}
-
-
-var a = new person("Jash","22","ECE","9585221288","Coimbatore")
-b = new person("Arivu","24","EEE","8870436538","Madurai")
-console.log(a,
-b);
+class Person {
+        constructor(firstName, lastName, age, department, email, mobile, city){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.department=department;
+            this.email=email;
+            this.mobile=mobile;
+            this.city = city;
+        }
+        getPersonDetails(){
+            return `Name: ${this.firstName} ${this.lastName}
+            age: ${this.age}
+            department: ${this.department}
+            email: ${this.email}
+            mobile: ${this.mobile}
+            city: ${this.city}`;
+        }
+    }
+    let person1 = new Person("jash", "k",24, "mechanical", "jash@gmail.com", 9150485661, "coimbatore");
+    let person2 = new Person("parama","sivan", 27, "mechanical", "paramasivan@gmail.com", 7639782192, "chennai");
+    
+    console.log(person1.getPersonDetails());
+    console.log(person2.getPersonDetails());
 
 
 // *................................................................................................*
@@ -160,20 +169,22 @@ b);
 
 // 4. write a class to calculate the uber price.
 
-class uber {
-    constructor(distance,duration,costperminute,basefare){
-     this.distance = distance
-     this.duration = duration
-     this.costperminute = costperminute
-     this.basefare = basefare
-}
-
-}
-
-
-var a = new uber(20,10,10,20)
-
-console.log(a.distance + a.duration + a.costperminute + a.basefare );
+class UberPrice {
+    constructor(distance, duration, baseFare, costPerMile, costPerMinute) {
+      this.distance = distance;
+      this.duration = duration;
+      this.baseFare = baseFare;
+      this.costPerMile = costPerMile;
+      this.costPerMinute = costPerMinute;
+    }
+  
+    totalPrice() {
+      return this.baseFare + (this.distance * this.costPerMile) + (this.duration * this.costPerMinute);
+    }
+  }
+  
+  const myUber = new UberPrice(5, 10, 60, 14, 2);
+  console.log(myUber.totalPrice());
 
 // *................................................................................................*
 
